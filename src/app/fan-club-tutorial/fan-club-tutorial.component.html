@@ -1,1 +1,39 @@
-<p>fan-club-tutorial works!</p>
+<div class="tutorial-wrapper">
+  <div class="tutorial">
+    @let currentDataPage = pageData1[currentPage$$()];
+    <div class="tutorial__header">
+      <span>{{ currentDataPage.header }}</span>
+    </div>
+    <div class="tutorial__body">
+      <p>{{ currentDataPage.beforeImage }}</p>
+      <img [src]="currentDataPage.passToImage" alt="main img">
+      <div>
+        @if (currentDataPage.list) {
+          <div class="tutorial__list">
+            <p>{{ currentDataPage.list.head }}</p>
+            <ul>
+              @for (li of currentDataPage.list.body; let i = $index; track i) {
+                <li>
+                  <img src="images/star.webp" alt="star">
+                  {{ li }}
+                </li>
+              }
+            </ul>
+          </div>
+        } @else {
+          <p>{{ currentDataPage.afterImage }}</p>
+        }
+      </div>
+    </div>
+    <div
+      (click)="goToNextPage()"
+      class="tutorial__next-page"
+      [style.background-image]="currentPage$$() !== 2
+      ? 'url(images/button.webp)' : 'url(images/button-orange.webp)'"
+    >
+      <p>
+        {{ currentDataPage.button }}
+      </p>
+    </div>
+  </div>
+</div>
