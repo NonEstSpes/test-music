@@ -1,12 +1,12 @@
-<div class="tutorial-wrapper">
-  <div class="tutorial">
-    @let currentDataPage = pageData1[currentPage$$()];
+<div class="tutorial-wrapper" >
+  <div class="tutorial" [@FanClubTutorial]>
+    @let currentDataPage = pageData[currentPage$$()];
     <div class="tutorial__header">
       <span>{{ currentDataPage.header }}</span>
     </div>
     <div class="tutorial__body">
-      <p>{{ currentDataPage.beforeImage }}</p>
-      <img [src]="currentDataPage.passToImage" alt="main img">
+      <p class="before-text">{{ currentDataPage.beforeImage }}</p>
+      <img [src]="currentDataPage.passToImage" alt="main img" class="img">
       <div>
         @if (currentDataPage.list) {
           <div class="tutorial__list">
@@ -21,7 +21,7 @@
             </ul>
           </div>
         } @else {
-          <p>{{ currentDataPage.afterImage }}</p>
+          <p class="after-text">{{ currentDataPage.afterImage }}</p>
         }
       </div>
     </div>

@@ -1,6 +1,6 @@
 import {DataPageType} from './data-page.type';
 
-export const pageData: DataPageType[] = [
+export const PageData: DataPageType[] = [
   {
     header: "Что такое\n" +
       "фан-клуб? ",

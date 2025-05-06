@@ -1,18 +1,18 @@
 import {Component, effect, signal} from '@angular/core';
-import {animate, query, sequence, stagger, style, transition, trigger} from '@angular/animations';
-import {NgForOf} from '@angular/common';
-import {pageData} from './const';
+import {PageData} from './const';
+import {FanClubTutorialAnimation} from './fan-club-tutorial.animation';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-fan-club-tutorial',
   templateUrl: './fan-club-tutorial.component.html',
   styleUrls: ['./fan-club-tutorial.component.scss'],
   animations: [
-
+    FanClubTutorialAnimation
   ]
 })
 export class FanClubTutorialComponent {
-  protected readonly pageData1 = pageData;
+  protected readonly pageData = PageData;
   protected currentPage$$ = signal(0);
   private effectChangePage = effect(() => {
     if (this.currentPage$$() == 3) {
@@ -20,7 +20,20 @@ export class FanClubTutorialComponent {
     }
   })
 
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+  ) {
+    this.activatedRoute.params.subscribe(params => {
+      const page = parseInt(params['numPages'], 10);
+      if (!isNaN(page) && page >= 0) {
+        this.currentPage$$.set(page);
+      }
+    });
+  }
+
   goToNextPage() {
-    this.currentPage$$.update(value => value + 1);
+    this.router.navigateByUrl(`/${this.currentPage$$() + 1}`)
+    location.reload()
   }
 }
