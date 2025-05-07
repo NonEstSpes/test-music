@@ -34,6 +34,6 @@ export class FanClubTutorialComponent {
 
   goToNextPage() {
     this.router.navigateByUrl(`/${this.currentPage$$() + 1}`)
-    location.reload()
+    setTimeout(() => location.reload())
   }
 }
