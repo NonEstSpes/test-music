@@ -13,7 +13,6 @@
     color: #fff;
     white-space: pre-wrap;
     &__header {
-      // обычно в проектах выношу в mixin типографию
       font-family: 'Hardpixel', sans-serif;
       font-weight: 400;
       font-size: 40px;
@@ -38,11 +37,21 @@
       display: flex;
       flex-direction: column;
       gap: 16px;
+
       p {
         font-size: 20px;
       }
+
       li {
-        padding-bottom: 8px;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+
+        img {
+          margin: 10px 0;
+          width: 16px;
+          height: 16px;
+        }
       }
     }
     &__next-page {
@@ -58,7 +67,6 @@
       border: none;
 
       background-color: transparent;
-      //background-image: url("../../../public/images/button.webp");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;

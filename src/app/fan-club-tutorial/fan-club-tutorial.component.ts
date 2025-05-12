@@ -20,20 +20,7 @@ export class FanClubTutorialComponent {
     }
   })
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private router: Router,
-  ) {
-    this.activatedRoute.params.subscribe(params => {
-      const page = parseInt(params['numPages'], 10);
-      if (!isNaN(page) && page >= 0) {
-        this.currentPage$$.set(page);
-      }
-    });
-  }
-
   goToNextPage() {
-    this.router.navigateByUrl(`/${this.currentPage$$() + 1}`)
-    setTimeout(() => location.reload())
+    this.currentPage$$.update(val => val + 1);
   }
 }
