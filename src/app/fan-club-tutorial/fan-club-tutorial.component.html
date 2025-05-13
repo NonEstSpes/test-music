@@ -1,5 +1,5 @@
 <div class="tutorial-wrapper" >
-  <div class="tutorial" [@FanClubTutorial]>
+  <div class="tutorial" [@FanClubTutorial]="currentPage$$()">
     @let currentDataPage = pageData[currentPage$$()];
     <div class="tutorial__header">
       <span>{{ currentDataPage.header }}</span>

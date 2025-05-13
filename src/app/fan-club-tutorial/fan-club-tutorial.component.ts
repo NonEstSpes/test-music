@@ -1,7 +1,6 @@
 import {Component, effect, signal} from '@angular/core';
 import {PageData} from './const';
 import {FanClubTutorialAnimation} from './fan-club-tutorial.animation';
-import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-fan-club-tutorial',
@@ -9,7 +8,7 @@ import {ActivatedRoute, Router} from '@angular/router';
   styleUrls: ['./fan-club-tutorial.component.scss'],
   animations: [
     FanClubTutorialAnimation
-  ]
+  ],
 })
 export class FanClubTutorialComponent {
   protected readonly pageData = PageData;
