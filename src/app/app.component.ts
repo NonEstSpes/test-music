@@ -4,7 +4,7 @@ import { FanClubTutorialComponent } from './fan-club-tutorial/fan-club-tutorial.
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, FanClubTutorialComponent],
+  imports: [FanClubTutorialComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
 })
